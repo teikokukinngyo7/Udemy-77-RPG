@@ -8,7 +8,7 @@ public class QuestManager : MonoBehaviour
 {
     public StageUIManager stageUI;
     public GameObject enemyPrefab; // 生成するプレファブ(Unityエディタから設定する)
-
+    public BattleManager battleManager;
 
     //もしげんざいのエンカウントテーブルが-1なら敵と遭遇
     int[] encountTable = { -1, -1, 0, -1, -0 -1,};
@@ -42,9 +42,12 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    
     void EncountEnemy()
     {
         stageUI.HideButtons(); // 敵にあったら非表示
-        Instantiate(enemyPrefab);
+        GameObject enemyObj = Instantiate(enemyPrefab);
+        EnemyManager enemy = enemyObj.GetComponent<EnemyManager>();
+        battleManager.Setup(enemy);
     }
 }
