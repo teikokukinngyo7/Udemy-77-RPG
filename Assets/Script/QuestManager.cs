@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class QuestManager : MonoBehaviour
 {
     public StageUIManager stageUI;
+    public GameObject enemyPrefab; // 生成するプレファブ(Unityエディタから設定する)
+
 
     //もしげんざいのエンカウントテーブルが-1なら敵と遭遇
     int[] encountTable = { -1, -1, 0, -1, -0 -1,};
@@ -26,6 +28,7 @@ public class QuestManager : MonoBehaviour
         // 進行度をUIに反映
         stageUI.UpdateUI(currentStage);
 
+
         if (encountTable.Length <= currentStage)
         {
             Debug.Log("クエストクリア");
@@ -35,6 +38,13 @@ public class QuestManager : MonoBehaviour
         else if (encountTable[currentStage] == 0) // 0なら遭遇
         {
             Debug.Log("敵に遭遇");
+            EncountEnemy();
         }
+    }
+
+    void EncountEnemy()
+    {
+        stageUI.HideButtons(); // 敵にあったら非表示
+        Instantiate(enemyPrefab);
     }
 }
