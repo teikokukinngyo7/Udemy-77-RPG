@@ -6,11 +6,12 @@ using UnityEngine.UI;
 // クエスト全体を管理
 public class QuestManager : MonoBehaviour
 {
-    //public StageUIManager stageUI;
-    public int currentStage = 1; // 現在のステージ進行度
-
     public StageUIManager stageUI;
 
+    //もしげんざいのエンカウントテーブルが-1なら敵と遭遇
+    int[] encountTable = { -1, -1, 0, -1, -0 -1,};
+
+    public int currentStage = 0; // 現在のステージ進行度
     //ゲーム開始時から現在のステージを反映させる。
     private void Start()
     {
@@ -24,5 +25,16 @@ public class QuestManager : MonoBehaviour
         
         // 進行度をUIに反映
         stageUI.UpdateUI(currentStage);
+
+        if (encountTable.Length <= currentStage)
+        {
+            Debug.Log("クエストクリア");
+            // クリア処理
+        }
+
+        else if (encountTable[currentStage] == 0) // 0なら遭遇
+        {
+            Debug.Log("敵に遭遇");
+        }
     }
 }
