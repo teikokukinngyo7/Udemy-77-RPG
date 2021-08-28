@@ -11,7 +11,7 @@ public class QuestManager : MonoBehaviour
     public BattleManager battleManager;
 
     //もしげんざいのエンカウントテーブルが-1なら敵と遭遇
-    int[] encountTable = { -1, -1, 0, -1, -0 -1,};
+    int[] encountTable = { -1, -1, 0, -1, -1, 0,};
 
     public int currentStage = 0; // 現在のステージ進行度
     //ゲーム開始時から現在のステージを反映させる。
@@ -44,7 +44,8 @@ public class QuestManager : MonoBehaviour
 
     
     void EncountEnemy()
-    {
+    {   
+        Debug.Log("HideBattle");
         stageUI.HideButtons(); // 敵にあったら非表示
         //enemyPrefabをゲームオブジェクトとして作成
         GameObject enemyObj = Instantiate(enemyPrefab);
@@ -55,5 +56,11 @@ public class QuestManager : MonoBehaviour
         //講義92バトルマネージャが管理しているエネミーにprefabから
         //作成したエネミーを受け渡してやる。
         battleManager.Setup(enemy);
+    }
+
+    public void EndBattle()
+    {
+        Debug.Log("EndBattle");
+        stageUI.ShowButtons();
     }
 }
