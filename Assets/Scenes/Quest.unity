@@ -561,6 +561,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169338807}
   m_CullTransparentMesh: 1
+--- !u!1 &487708406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 487708408}
+  - component: {fileID: 487708407}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &487708407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487708406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d85a78ec670f74ddf9d6a6c65d53b042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &487708408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487708406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 619.7663, y: 1382.1185, z: -320.03516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491539528
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageUI: {fileID: 90558988}
   enemyPrefab: {fileID: 8624453790520081085, guid: 8b0e00813cfdf4e88bcc0b3ce9ea139d, type: 3}
+  battleManager: {fileID: 1824091860}
   currentStage: 0
 --- !u!4 &1237467584
 Transform:
@@ -1355,10 +1399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e77b13f86c7fa43b29e000ea5e842e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questManager: {fileID: 1237467583}
   playerUI: {fileID: 115647721}
   enemyUI: {fileID: 775073720}
   player: {fileID: 2041243350}
-  enemy: {fileID: 104997992}
 --- !u!4 &1824091861
 Transform:
   m_ObjectHideFlags: 0
