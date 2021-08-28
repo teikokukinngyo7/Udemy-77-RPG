@@ -46,8 +46,14 @@ public class QuestManager : MonoBehaviour
     void EncountEnemy()
     {
         stageUI.HideButtons(); // 敵にあったら非表示
+        //enemyPrefabをゲームオブジェクトとして作成
         GameObject enemyObj = Instantiate(enemyPrefab);
+        //バトルマネージャにエネミーの値を渡すために、enemy変数に
+        //EnemyManager のコンポーネント(enemyprefabに割当
+        //られているEnemyManager.cs)をうけわたす。
         EnemyManager enemy = enemyObj.GetComponent<EnemyManager>();
+        //講義92バトルマネージャが管理しているエネミーにprefabから
+        //作成したエネミーを受け渡してやる。
         battleManager.Setup(enemy);
     }
 }

@@ -16,14 +16,20 @@ public class BattleManager : MonoBehaviour
     public void Setup(EnemyManager enemyManager)
     {
         enemy = enemyManager;
+        Debug.Log(enemy);
         enemyUI.SetupUI(enemy);
         playerUI.SetupUI(player);
-    
+
+        //prefabに設定されているEnemyManagerから、
+        //AddEventLintenerOnTap 関数に引数としてPlayerAttack関数を
+        //渡すことによって、prefab上で、PlayerAttackが実行可能。
+        enemy.AddEventLintenerOnTap(PlayerAttack);
     }
     void PlayerAttack()
     {
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
+
     }
 
     void EnemyAttack()

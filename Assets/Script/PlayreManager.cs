@@ -16,9 +16,12 @@ public class PlayreManager : MonoBehaviour
     //　プレイヤーがダメージを受ける。
     public void Damage(int damage)
     {
-        Debug.Log("PlayerのHPは"+hp+"ダメージは"+damage);
+
         hp -= damage;
-        Debug.Log("PlayerのHPは"+hp);
+        if (hp <= 0)
+        {
+            hp = 0;
+        }
 
     }
 
