@@ -16,7 +16,16 @@ public class BattleManager : MonoBehaviour
     private void Start() 
     {
         enemyUI.gameObject.SetActive(false);
+        //StartCoroutine(SampleCol());
     }
+    //2秒待つための関数。
+    /*IEnumerator SampleCol()
+    {
+        Debug.Log("コルーチン開始");
+        yield return new WaitForSeconds(2f);
+        Debug.Log("２秒経過");
+    }*/
+
     //初期設定
     public void Setup(EnemyManager enemyManager)
     {
@@ -33,6 +42,8 @@ public class BattleManager : MonoBehaviour
     }
     void PlayerAttack()
     {
+        //コルーチンの連打対策
+        StopAllCoroutines();
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
                 if (enemy.hp <= 0)
@@ -44,13 +55,14 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            EnemyTurn();
+            StartCoroutine(EnemyTurn());
         }
 
     }
 
-    void EnemyTurn()
+    IEnumerator EnemyTurn()
     {
+        yield return new WaitForSeconds(1f);
         enemy.Attack(player);
         playerUI.UpdateUI(player);
     }
