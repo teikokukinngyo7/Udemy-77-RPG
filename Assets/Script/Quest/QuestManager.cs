@@ -33,6 +33,7 @@ public class QuestManager : MonoBehaviour
         {
             Debug.Log("クエストクリア");
             // クリア処理
+            QuestClear();
         }
 
         else if (encountTable[currentStage] == 0) // 0なら遭遇
@@ -62,5 +63,16 @@ public class QuestManager : MonoBehaviour
     {
         Debug.Log("EndBattle");
         stageUI.ShowButtons();
+    }
+
+    void QuestClear()
+    {
+        //クエストクリアと表示、
+        stageUI.ShowClearText();
+        //街に戻るボタンのみを表示。
+        
+        
+        //ScenceTransisionManager.LoadTo("Town");
+
     }
 }
