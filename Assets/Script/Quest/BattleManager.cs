@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 //Player と対戦の管理
 public class BattleManager : MonoBehaviour
 {   
+    public Transform playerDamagePanel;
     public QuestManager questManager;
     public PlayreUIManager playerUI;
     public EnemyUIManeger enemyUI;
@@ -39,6 +41,8 @@ public class BattleManager : MonoBehaviour
         //AddEventLintenerOnTap 関数に引数としてPlayerAttack関数を
         //渡すことによって、prefab上で、PlayerAttackが実行可能。
         enemy.AddEventLintenerOnTap(PlayerAttack);
+        //Dotweenの実行　enemyをすこし動かす
+        // enemy.transform.DOMove(new Vector3(0,10,0), 5f);
     }
     void PlayerAttack()
     {
@@ -48,10 +52,8 @@ public class BattleManager : MonoBehaviour
         enemyUI.UpdateUI(enemy);
                 if (enemy.hp <= 0)
         {   
-            enemyUI.gameObject.SetActive(false);// ここ
-            //敵オブジェクトの削除
-            Destroy(enemy.gameObject);
-            EndBattle();
+;
+            StartCoroutine(EndBattle());
         }
         else
         {
@@ -63,12 +65,19 @@ public class BattleManager : MonoBehaviour
     IEnumerator EnemyTurn()
     {
         yield return new WaitForSeconds(1f);
+        playerDamagePanel.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
+
         enemy.Attack(player);
         playerUI.UpdateUI(player);
     }
 
-        void EndBattle()
+    IEnumerator EndBattle()
     {
+        yield return new WaitForSeconds(1f);
+
+        enemyUI.gameObject.SetActive(false);// ここ
+        //敵オブジェクトの削除
+        Destroy(enemy.gameObject);
         Debug.Log("EndBattle");
         questManager.EndBattle();
 

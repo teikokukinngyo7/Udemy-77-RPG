@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+
 
 // クエスト全体を管理
 public class QuestManager : MonoBehaviour
@@ -9,6 +11,7 @@ public class QuestManager : MonoBehaviour
     public StageUIManager stageUI;
     public GameObject enemyPrefab; // 生成するプレファブ(Unityエディタから設定する)
     public BattleManager battleManager;
+    public GameObject questBG;
 
     //もしげんざいのエンカウントテーブルが-1なら敵と遭遇
     int[] encountTable = { -1, -1, 0, -1, -1, 0,};
@@ -20,9 +23,19 @@ public class QuestManager : MonoBehaviour
         stageUI.UpdateUI(currentStage);
     }
 
-    // Nextボタンが押されたら
-    public void OnNextButton()
+    IEnumerator seaching()
     {
+            // 背景を大きく 2びょうかけてふわっとさせ、
+        questBG.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 2f)
+        //　1びょうかけてもとに戻す。
+            .OnComplete(() => questBG.transform.localScale = new Vector3(1, 1, 1));
+        // フェードアウトさせるために、カラーの薄さを変更させる。
+        SpriteRenderer questBGSpriteRenderer = questBG.GetComponent<SpriteRenderer>();
+        questBGSpriteRenderer.DOFade(0, 2f)
+            .OnComplete(() => questBGSpriteRenderer.DOFade(1, 0));
+
+        yield return new WaitForSeconds(2f);
+
         currentStage++;
         
         // 進行度をUIに反映
@@ -40,7 +53,17 @@ public class QuestManager : MonoBehaviour
         {
             Debug.Log("敵に遭遇");
             EncountEnemy();
+        }    
+        else
+        {
+            stageUI.ShowButtons();
         }
+    }
+    // Nextボタンが押されたら
+    public void OnNextButton()
+    {
+        stageUI.HideButtons();
+        StartCoroutine(seaching());
     }
 
     

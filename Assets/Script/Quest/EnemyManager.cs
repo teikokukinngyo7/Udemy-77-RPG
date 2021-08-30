@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class EnemyManager : MonoBehaviour
     public new string name;
     public int hp;
     public int at;
+    public GameObject hitEffect;
+
 
     //　プレイヤーに攻撃する。
     public void Attack(PlayreManager player)
@@ -20,7 +23,11 @@ public class EnemyManager : MonoBehaviour
 
     //　エネミーがダメージを受ける。
     public void Damage(int damage)
-    {
+    {   
+        Instantiate(hitEffect, this.transform, false);
+        transform.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
+        
+
         hp -= damage;
         if (hp <= 0)
         {

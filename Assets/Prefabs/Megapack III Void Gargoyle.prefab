@@ -255,3 +255,4 @@ MonoBehaviour:
   name: "\u98DB\u3076\u6575\u3060\u3088"
   hp: 50
   at: 5
+  hitEffect: {fileID: 6385550174847693633, guid: b38e1fc8b440546d0b4a6e57378d86ed, type: 3}
