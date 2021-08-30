@@ -48,6 +48,8 @@ public class BattleManager : MonoBehaviour
     {
         //コルーチンの連打対策
         StopAllCoroutines();
+        DialogTextManager.instance.SetScenarios(new string[] { "Playerの攻撃" });
+
         player.Attack(enemy);
         enemyUI.UpdateUI(enemy);
                 if (enemy.hp <= 0)
@@ -67,8 +69,13 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         playerDamagePanel.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
 
-        enemy.Attack(player);
+        int damage = enemy.Attack(player);
         playerUI.UpdateUI(player);
+
+        DialogTextManager.instance.SetScenarios(new string[] {
+        "モンスターの攻撃\nプレイヤーは"+damage+"ダメージを受けた。"
+        });
+        
     }
 
     IEnumerator EndBattle()

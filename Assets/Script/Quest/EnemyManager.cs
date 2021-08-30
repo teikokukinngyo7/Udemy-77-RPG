@@ -16,13 +16,14 @@ public class EnemyManager : MonoBehaviour
 
 
     //　プレイヤーに攻撃する。
-    public void Attack(PlayreManager player)
+    public int Attack(PlayreManager player)
     {
-        player.Damage(at);
+        int damage = player.Damage(at);
+        return damage;
     }
 
     //　エネミーがダメージを受ける。
-    public void Damage(int damage)
+    public int Damage(int damage)
     {   
         Instantiate(hitEffect, this.transform, false);
         transform.DOShakePosition(0.3f, 0.5f, 20, 0, false, true);
@@ -33,6 +34,7 @@ public class EnemyManager : MonoBehaviour
         {
             hp = 0;
         }
+        return damage;
     }
 
     // tapActionに関数を登録する関数を作る。

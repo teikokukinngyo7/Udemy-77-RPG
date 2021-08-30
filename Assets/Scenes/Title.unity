@@ -1051,5 +1051,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4747462839571798637, guid: 938b011b7aa024f678d4acf2cfaae24d, type: 3}
+      propertyPath: fadeTime
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 938b011b7aa024f678d4acf2cfaae24d, type: 3}

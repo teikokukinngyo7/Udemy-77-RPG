@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
+//using UnityEngine.UI;
 
 
 // クエスト全体を管理
@@ -21,17 +21,19 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         stageUI.UpdateUI(currentStage);
+        DialogTextManager.instance.SetScenarios(new string[]{"森についた \n"});
+
     }
 
     IEnumerator seaching()
     {
-            // 背景を大きく 2びょうかけてふわっとさせ、
-        questBG.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 2f)
+            // 背景を大きく 1びょうかけてふわっとさせ、
+        questBG.transform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 1f)
         //　1びょうかけてもとに戻す。
             .OnComplete(() => questBG.transform.localScale = new Vector3(1, 1, 1));
         // フェードアウトさせるために、カラーの薄さを変更させる。
         SpriteRenderer questBGSpriteRenderer = questBG.GetComponent<SpriteRenderer>();
-        questBGSpriteRenderer.DOFade(0, 2f)
+        questBGSpriteRenderer.DOFade(0, 1f)
             .OnComplete(() => questBGSpriteRenderer.DOFade(1, 0));
 
         yield return new WaitForSeconds(2f);

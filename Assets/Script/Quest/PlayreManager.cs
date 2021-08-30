@@ -8,13 +8,14 @@ public class PlayreManager : MonoBehaviour
     public int at;
 
     //　エネミーに攻撃する。
-    public void Attack(EnemyManager enemy)
+    public int Attack(EnemyManager enemy)
     {
-        enemy.Damage(at);
+        int damage = enemy.Damage(at);
+        return damage;
     }
 
     //　プレイヤーがダメージを受ける。
-    public void Damage(int damage)
+    public int Damage(int damage)
     {
 
         hp -= damage;
@@ -22,7 +23,7 @@ public class PlayreManager : MonoBehaviour
         {
             hp = 0;
         }
-
+        return damage;
     }
 
 }
