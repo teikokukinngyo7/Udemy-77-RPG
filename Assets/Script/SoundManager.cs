@@ -26,19 +26,18 @@ public class SoundManager : MonoBehaviour
 
         }
     }
-    //SEのスピーカー
-    public AudioSource audioSource;
-    //　鳴らす素材
-    public AudioClip audioClip;
+
+    public AudioSource audioSourceSE; // SEのスピーカー
+    public AudioClip[] audioClipsSE; // ならす素材
 
     // Start is called before the first frame update
     void Start()
     {
         //PlaySE();
     }
-    public void PlaySE()
+    public void PlaySE(int index)
     {
-        audioSource.PlayOneShot(audioClip); // SEを一度だけならす
+        audioSourceSE.PlayOneShot(audioClipsSE[index]); // SEを一度だけならす
     }
 
 }

@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: c77a94e6bf347418388550c8f6a74be1
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: c8791e1c700dc47f48c13f27312afd9c
+  - enabled: 1
+    path: Assets/Scenes/RhythmDog.unity
+    guid: 67d9cc93f62b146a4a3a3c1dd065a74e
   m_configObjects: {}

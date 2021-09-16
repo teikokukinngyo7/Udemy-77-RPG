@@ -14,4 +14,10 @@ public class SceneTransitionManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+    
+    public void OnToQuestButton()
+    {
+        SoundManager.instance.PlaySE(0);
+    }
+
 }
