@@ -601,6 +601,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522047770}
   m_CullTransparentMesh: 1
+--- !u!82 &526673916 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1511694463935986077, guid: fff4599451813448582a24d0a10e5b18, type: 3}
+  m_PrefabInstance: {fileID: 1511694465621434228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &549340879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1347,6 +1352,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1511694463935986072, guid: fff4599451813448582a24d0a10e5b18, type: 3}
+      propertyPath: audioSourceBGM
+      value: 
+      objectReference: {fileID: 526673916}
+    - target: {fileID: 1511694463935986072, guid: fff4599451813448582a24d0a10e5b18, type: 3}
+      propertyPath: audioClipsBGM.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1511694463935986076, guid: fff4599451813448582a24d0a10e5b18, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -1357,6 +1370,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1511694463935986077, guid: fff4599451813448582a24d0a10e5b18, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511694463935986077, guid: fff4599451813448582a24d0a10e5b18, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1511694463935986078, guid: fff4599451813448582a24d0a10e5b18, type: 3}
