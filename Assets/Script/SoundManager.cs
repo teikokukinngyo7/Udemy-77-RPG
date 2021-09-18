@@ -40,4 +40,6 @@ public class SoundManager : MonoBehaviour
         audioSourceSE.PlayOneShot(audioClipsSE[index]); // SEを一度だけならす
     }
 
+    
+
 }
