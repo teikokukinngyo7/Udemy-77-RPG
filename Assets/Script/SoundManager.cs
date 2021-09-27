@@ -34,6 +34,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource audioSourceSE; // SEのスピーカー
     public AudioClip[] audioClipsSE; // ならす素材
+    public AudioClip[] audioClipsUmedaSE; // ならす素材
 　　
 public void PlayBGM(string BGMName)
     {
@@ -53,11 +54,15 @@ public void PlayBGM(string BGMName)
     {
         //PlaySE();
     }
+
     public void PlaySE(int index)
     {
         audioSourceSE.PlayOneShot(audioClipsSE[index]); // SEを一度だけならす
     }
 
-    
+        public void PlayUmedaSE(int index)
+    {
+        audioSourceSE.PlayOneShot(audioClipsUmedaSE[index]); // SEを一度だけならす
+    }
 
 }

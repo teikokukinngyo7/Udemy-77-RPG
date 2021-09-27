@@ -10,4 +10,9 @@ public class BottonManagers : MonoBehaviour
         SoundManager.instance.PlaySE(index);
     }
 
+        public void OnUmedaButtonm(int index)
+    {
+        SoundManager.instance.PlayUmedaSE(index);
+    }
+
 }
